@@ -12841,8 +12841,9 @@ div#mCSB_1_container{
 
 .gallery-controls h2 {
   font-size: 28px;
-  color: #333;
+  color: #1055c1;
   margin: 0;
+  font-weight: bold;
 }
 
 .toggle-buttons {
