@@ -20,6 +20,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link href="assets/css/font-awesome-all.css" rel="stylesheet" />
     <link href="assets/css/flaticon.css" rel="stylesheet" />
     <link href="assets/css/owl.css" rel="stylesheet" />
@@ -455,6 +457,110 @@
           padding: 30px;
         }
       }
+
+      .contact-buttons-container {
+            position: fixed;
+            z-index: 9999;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        /* Desktop view - right side */
+        @media (min-width: 768px) {
+            .contact-buttons-container {
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .contact-button {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                width: 180px;
+                padding: 12px 15px;
+                margin-bottom: 10px;
+                border-radius: 30px;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+                transform: translateX(120px);
+                opacity: 0.8;
+            }
+            
+            .contact-button:hover {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            
+            .contact-button i {
+                margin-right: 10px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Mobile view - bottom center */
+        @media (max-width: 767.98px) {
+            .contact-buttons-container {
+                bottom: 20px;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .contact-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 15px;
+                border-radius: 30px;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                transition: all 0.3s ease;
+                opacity: 0.9;
+                width: auto;
+                min-width: 120px;
+            }
+            
+            .contact-button:hover {
+                opacity: 1;
+                transform: translateY(-5px);
+            }
+            
+            .contact-button i {
+                margin-right: 8px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Button colors */
+        .call-back-btn {
+            background-color: #007bff;
+        }
+        
+        .call-us-btn {
+            background-color: #28a745;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+        
+        /* Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .contact-button.pulse {
+            animation: pulse 1.5s infinite;
+        }
     </style>
   </head>
 
@@ -3257,11 +3363,65 @@
 
       <!-- main-footer end -->
 
+      <div class="contact-buttons-container">
+        <a href="tel:09741161117" class="contact-button call-back-btn pulse">
+            <i class="fas fa-phone-alt"></i>
+            <span>CALL BACK</span>
+        </a>
+        
+        <!-- <a href="tel:09741161117" class="contact-button call-us-btn">
+            <i class="fas fa-phone"></i>
+            <span>CALL US</span>
+        </a> -->
+        
+        <a href="https://wa.me/9741161117" target="_blank" class="contact-button whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+            <span>WHATSAPP</span>
+        </a>
+    </div>
+
       <!--Scroll to top-->
       <button class="scroll-top scroll-to-target" data-target="html">
         <i class="flaticon-up-arrow-1"></i>
       </button>
     </div>
+
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add animation on hover for desktop
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.contact-button');
+            
+            buttons.forEach(button => {
+                // Add hover effect for desktop
+                if (window.innerWidth >= 768) {
+                    button.addEventListener('mouseenter', function() {
+                        this.classList.add('pulse');
+                    });
+                    
+                    button.addEventListener('mouseleave', function() {
+                        this.classList.remove('pulse');
+                    });
+                }
+                
+                // Click animation
+                button.addEventListener('click', function() {
+                    this.classList.add('pulse');
+                    setTimeout(() => {
+                        this.classList.remove('pulse');
+                    }, 1000);
+                });
+            });
+            
+            // Make only CALL BACK button pulse on desktop initially
+            if (window.innerWidth >= 768) {
+                document.querySelector('.call-back-btn').classList.add('pulse');
+            }
+        });
+    </script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
