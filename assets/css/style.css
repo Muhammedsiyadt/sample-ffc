@@ -371,14 +371,14 @@ img {
   position: fixed;
   display: inline-block;
   bottom: 105%;
-  right: 40px;
+  right: 15px;
   font-size: 14px;
   font-weight: 700;
   font-family: 'Nunito Sans', sans-serif;
   z-index: 99;
   color: #ffffff;
-  background: #1055c1;
-  border-radius: 5px;
+  background: #1055c1c7;
+  border-radius: 2px;
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
@@ -401,7 +401,7 @@ img {
 
 
 .scroll-top.open {
-  bottom: 40px;
+  bottom: 50px;
 }
 
 .sec-title{
